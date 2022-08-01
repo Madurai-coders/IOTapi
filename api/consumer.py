@@ -70,6 +70,7 @@ class SensorConsumerObserver(AsyncAPIConsumer,AsyncWebsocketConsumer):
 
     # Receive message from WebSocket
     async def receive(self, text_data):
+        print(text_data)
         text_data_json = json.loads(text_data)
         dict_type={
                     'type': 'chat_message',
