@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'api',
     'channels',
     'corsheaders',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [

@@ -17,3 +17,9 @@ class btn(models.Model):
     #         except switch.DoesNotExist:
     #             pass
     #     super(switch, self).save(*args, **kwargs)
+
+class turfImages(models.Model):
+    generalTurfImages =  models.ImageField(upload_to='media/images',default='esp32-cam.jpg', blank=True,null = True)
+
+    def __str__(self):
+        return self.generalTurfImages
