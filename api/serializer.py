@@ -1,15 +1,18 @@
 from rest_framework import serializers
-from api.models import btn,turfImages
+from api.models import IotChannelData,Esp32camImg
+from django.contrib.auth.models import User
 
-class Btnserializer(serializers.ModelSerializer):
+
+
+class IotChannelDataSerializer(serializers.ModelSerializer):
     class Meta:
-        model = btn
-        fields = ['id','is_on']
+        model = IotChannelData
+        fields = ['id','name','value']
 
 
-class TurfImageSerializer(serializers.ModelSerializer):
+class Esp32camImgSerializer(serializers.ModelSerializer):
     class Meta:
-        model = turfImages
-        fields = '__all__' #['turfDetails','generalTurfImages']
+        model = Esp32camImg
+        fields = '__all__' 
 
     

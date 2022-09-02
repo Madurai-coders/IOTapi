@@ -1,25 +1,16 @@
 from django.db import models
 
 # Create your models here.
-class btn(models.Model):
-    is_on =  models.BooleanField()
+class IotChannelData(models.Model):
+    name = models.CharField(max_length=200) 
+    value = models.CharField(max_length=200) 
+
 
     def __str__(self):
-        return self.is_on
+        return self.name
 
-    # def save(self, *args, **kwargs):
-    #     if self.is_on:
-    #         try:
-    #             temp = switch.objects.get(is_on=True)
-    #             if self != temp:
-    #                 temp.is_on = False
-    #                 temp.save()
-    #         except switch.DoesNotExist:
-    #             pass
-    #     super(switch, self).save(*args, **kwargs)
 
-class turfImages(models.Model):
-    generalTurfImages =  models.ImageField(upload_to='media/images',default='esp32-cam.jpg', blank=True,null = True)
-
+class Esp32camImg(models.Model):
+    UpdatingImg =  models.ImageField(upload_to='media/images',default='esp32-cam.jpg', blank=True,null = True)
     def __str__(self):
-        return self.generalTurfImages
+        return self.UpdatingImg
