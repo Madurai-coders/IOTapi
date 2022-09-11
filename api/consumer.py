@@ -38,10 +38,16 @@ class IotChannelDataConsumer(AsyncWebsocketConsumer):
                 }
         res = { **dict_type,**text_data_json,}
        
-        
-        # t = await database_sync_to_async(IotChannelData.objects.get)(name=name)
-        # t.value = value 
-        # await database_sync_to_async(t.save)() 
+        try:
+             t = await database_sync_to_async(IotChannelData.objects.get)(name=name)
+             t.value = value 
+             await database_sync_to_async(t.save)()
+        except:
+            await database_sync_to_async(IotChannelData.objects.create)(name=name,value=value)
+
+
+
+         
         
     
         # Send message to room group
